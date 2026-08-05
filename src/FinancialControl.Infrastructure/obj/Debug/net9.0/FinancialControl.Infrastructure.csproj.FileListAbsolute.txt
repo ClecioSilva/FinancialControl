@@ -13,3 +13,4 @@ C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\Financi
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Infrastructure\obj\Debug\net9.0\refint\FinancialControl.Infrastructure.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Infrastructure\obj\Debug\net9.0\FinancialControl.Infrastructure.pdb
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Infrastructure\obj\Debug\net9.0\ref\FinancialControl.Infrastructure.dll
+C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Infrastructure\obj\Debug\net9.0\FinancialControl.Infrastructure.sourcelink.json

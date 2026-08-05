@@ -17,3 +17,4 @@ C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\Financi
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\refint\FinancialControl.CrossCutting.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.pdb
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\ref\FinancialControl.CrossCutting.dll
+C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.sourcelink.json

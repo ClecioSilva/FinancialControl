@@ -9,3 +9,4 @@ C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\Financi
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\refint\FinancialControl.Domain.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.pdb
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\ref\FinancialControl.Domain.dll
+C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.sourcelink.json
