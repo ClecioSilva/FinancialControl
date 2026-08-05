@@ -1,0 +1,135 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {
+      "FinancialControl.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "FinancialControl.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FinancialControl.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinancialControl.Application.dll": {}
+        }
+      },
+      "FinancialControl.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/FinancialControl.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinancialControl.Domain.dll": {}
+        }
+      },
+      "FinancialControl.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "FinancialControl.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FinancialControl.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinancialControl.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FinancialControl.Application/1.0.0": {
+      "type": "project",
+      "path": "../FinancialControl.Application/FinancialControl.Application.csproj",
+      "msbuildProject": "../FinancialControl.Application/FinancialControl.Application.csproj"
+    },
+    "FinancialControl.Domain/1.0.0": {
+      "type": "project",
+      "path": "../FinancialControl.Domain/FinancialControl.Domain.csproj",
+      "msbuildProject": "../FinancialControl.Domain/FinancialControl.Domain.csproj"
+    },
+    "FinancialControl.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../FinancialControl.Infrastructure/FinancialControl.Infrastructure.csproj",
+      "msbuildProject": "../FinancialControl.Infrastructure/FinancialControl.Infrastructure.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0": [
+      "FinancialControl.Application >= 1.0.0",
+      "FinancialControl.Infrastructure >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\cogv\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\cogv\\My Private Documents\\DesafioCarrefour\\FinancialControl\\src\\FinancialControl.CrossCutting\\FinancialControl.CrossCutting.csproj",
+      "projectName": "FinancialControl.CrossCutting",
+      "projectPath": "C:\\Users\\cogv\\My Private Documents\\DesafioCarrefour\\FinancialControl\\src\\FinancialControl.CrossCutting\\FinancialControl.CrossCutting.csproj",
+      "packagesPath": "C:\\Users\\cogv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cogv\\My Private Documents\\DesafioCarrefour\\FinancialControl\\src\\FinancialControl.CrossCutting\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\cogv\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {
+            "C:\\Users\\cogv\\My Private Documents\\DesafioCarrefour\\FinancialControl\\src\\FinancialControl.Application\\FinancialControl.Application.csproj": {
+              "projectPath": "C:\\Users\\cogv\\My Private Documents\\DesafioCarrefour\\FinancialControl\\src\\FinancialControl.Application\\FinancialControl.Application.csproj"
+            },
+            "C:\\Users\\cogv\\My Private Documents\\DesafioCarrefour\\FinancialControl\\src\\FinancialControl.Infrastructure\\FinancialControl.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\cogv\\My Private Documents\\DesafioCarrefour\\FinancialControl\\src\\FinancialControl.Infrastructure\\FinancialControl.Infrastructure.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
