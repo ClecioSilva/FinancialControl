@@ -12,9 +12,9 @@ C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\Financi
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.AssemblyInfoInputs.cache
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.AssemblyInfo.cs
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.csproj.CoreCompileInputs.cache
+C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.sourcelink.json
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\Financia.C73F054D.Up2Date
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\refint\FinancialControl.CrossCutting.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.pdb
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\ref\FinancialControl.CrossCutting.dll
-C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.CrossCutting\obj\Debug\net9.0\FinancialControl.CrossCutting.sourcelink.json

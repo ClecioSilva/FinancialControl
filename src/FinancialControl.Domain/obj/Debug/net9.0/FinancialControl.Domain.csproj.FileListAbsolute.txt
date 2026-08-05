@@ -5,8 +5,8 @@ C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\Financi
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.AssemblyInfoInputs.cache
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.AssemblyInfo.cs
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.csproj.CoreCompileInputs.cache
+C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.sourcelink.json
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\refint\FinancialControl.Domain.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.pdb
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\ref\FinancialControl.Domain.dll
-C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Domain\obj\Debug\net9.0\FinancialControl.Domain.sourcelink.json

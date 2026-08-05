@@ -8,9 +8,9 @@ C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\Financi
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\FinancialControl.Application.AssemblyInfoInputs.cache
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\FinancialControl.Application.AssemblyInfo.cs
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\FinancialControl.Application.csproj.CoreCompileInputs.cache
+C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\FinancialControl.Application.sourcelink.json
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\Financia.4EC43240.Up2Date
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\FinancialControl.Application.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\refint\FinancialControl.Application.dll
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\FinancialControl.Application.pdb
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\ref\FinancialControl.Application.dll
-C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinancialControl.Application\obj\Debug\net9.0\FinancialControl.Application.sourcelink.json

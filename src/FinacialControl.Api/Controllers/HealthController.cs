@@ -1,21 +1,32 @@
+using FinancialControl.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FinacialControl.Api.Controllers;
 
-    [ApiController]
-    [Route("api/[controller]")]
-    public class HealthController : ControllerBase
+namespace FinancialControl.Api.Controllers;
+
+
+[ApiController]
+[Route("api/health")]
+public class HealthController : ControllerBase
+{
+
+    private readonly ITransactionRepository _repository;
+
+
+    public HealthController(
+        ITransactionRepository repository)
     {
-         [HttpGet]
+        _repository = repository;
+    }
+
+
+    [HttpGet]
     public IActionResult Get()
     {
         return Ok(new
         {
-            status = "API Online",
-            application = "Financial Control API",
-            version = "1.0.0",
-            environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"),
-            timestamp = DateTime.UtcNow
+            Status = "API funcionando",
+            Repository = _repository.GetType().Name
         });
     }
 }

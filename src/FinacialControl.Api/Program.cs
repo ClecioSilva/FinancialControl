@@ -1,20 +1,26 @@
-using Microsoft.OpenApi.Models;
+using FinancialControl.Application.DependencyInjection;
+using FinancialControl.Infrastructure.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// Controllers
 builder.Services.AddControllers();
 
-builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Financial Control API",
-        Version = "v1",
-        Description = "API de gestão financeira."
-    });
-});
+// Application Layer
+builder.Services.AddApplication();
+
+
+// Infrastructure Layer
+builder.Services.AddInfrastructure(
+    builder.Configuration);
+
+
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
@@ -30,8 +36,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
 app.UseAuthorization();
 
+
 app.MapControllers();
+
 
 app.Run();
