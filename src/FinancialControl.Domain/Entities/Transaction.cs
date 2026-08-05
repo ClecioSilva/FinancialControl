@@ -17,10 +17,10 @@ namespace FinancialControl.Domain.Entities
     public DateTime CreatedAt { get; private set; }
 
 
-    private Transaction()
-    {
+    //private Transaction()
+    //{
         // Necessário para ORM/serialização futuramente
-    }
+    //}
 
 
     public Transaction(
