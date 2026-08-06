@@ -1,13 +1,12 @@
-using FinancialControl.Domain.Entities;
+using FinancialControl.Application.DTOs.Transactions;
 using FinancialControl.Domain.Interfaces;
 using MediatR;
 
 namespace FinancialControl.Application.Queries.Transactions.GetTransactionById;
 
 public class GetTransactionByIdHandler
-    : IRequestHandler<GetTransactionByIdQuery, Transaction?>
+    : IRequestHandler<GetTransactionByIdQuery, TransactionResponse?>
 {
-
     private readonly ITransactionRepository _repository;
 
 
@@ -18,12 +17,16 @@ public class GetTransactionByIdHandler
     }
 
 
-    public async Task<Transaction?> Handle(
+    public async Task<TransactionResponse?> Handle(
         GetTransactionByIdQuery request,
         CancellationToken cancellationToken)
     {
-        return await _repository.GetByIdAsync(
-            request.Id,
-            cancellationToken);
+        var transaction =
+            await _repository.GetByIdAsync(
+                request.Id,
+                cancellationToken);
+
+
+        return transaction?.ToResponse();
     }
 }

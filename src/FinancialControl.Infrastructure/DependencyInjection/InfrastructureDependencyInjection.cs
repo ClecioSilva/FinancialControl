@@ -4,7 +4,7 @@ using FinancialControl.Infrastructure.Repositories;
 using FinancialControl.Infrastructure.Configurations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using FinancialControl.Infrastructure.Mongo;
+
 
 
 namespace FinancialControl.Infrastructure.DependencyInjection;

@@ -1,13 +1,12 @@
-using FinancialControl.Domain.Entities;
+using FinancialControl.Application.DTOs.Transactions;
 using FinancialControl.Domain.Interfaces;
 using MediatR;
 
 namespace FinancialControl.Application.Queries.Transactions.GetTransactions;
 
-public class GetTransactionsHandler 
-    : IRequestHandler<GetTransactionsQuery, IEnumerable<Transaction>>
+public class GetTransactionsHandler
+    : IRequestHandler<GetTransactionsQuery, IEnumerable<TransactionResponse>>
 {
-
     private readonly ITransactionRepository _repository;
 
 
@@ -18,12 +17,16 @@ public class GetTransactionsHandler
     }
 
 
-
-    public async Task<IEnumerable<Transaction>> Handle(
+    public async Task<IEnumerable<TransactionResponse>> Handle(
         GetTransactionsQuery request,
         CancellationToken cancellationToken)
     {
-        return await _repository
-            .GetAllAsync(cancellationToken);
+        var transactions =
+            await _repository.GetAllAsync(
+                cancellationToken);
+
+
+        return transactions
+            .Select(x => x.ToResponse());
     }
 }
