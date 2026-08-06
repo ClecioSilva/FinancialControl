@@ -4,6 +4,7 @@ using FinancialControl.Infrastructure.Repositories;
 using FinancialControl.Infrastructure.Configurations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FinancialControl.Infrastructure.Mongo;
 
 
 namespace FinancialControl.Infrastructure.DependencyInjection;
@@ -16,6 +17,8 @@ public static class InfrastructureDependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
+
+        MongoConfiguration.Configure();
 
         var mongoSettings =
             configuration

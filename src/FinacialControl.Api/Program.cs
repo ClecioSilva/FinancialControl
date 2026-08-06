@@ -1,8 +1,12 @@
 using FinancialControl.Application.DependencyInjection;
 using FinancialControl.Infrastructure.DependencyInjection;
+using FinancialControl.Infrastructure.Mongo;
 
+MongoConfiguration.Configure();
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 
 // Controllers
