@@ -1,437 +1,355 @@
 # Financial Control API
 
-API desenvolvida como solução para o desafio técnico de controle financeiro.
+API para gerenciamento de transações financeiras desenvolvida em **.NET 9**, utilizando princípios de **Clean Architecture**, **CQRS**, persistência em **MongoDB** e mensageria assíncrona com **RabbitMQ**.
 
-O projeto foi construído utilizando **.NET 9**, seguindo princípios de **Clean Architecture**, **CQRS**, **Repository Pattern**, **Dependency Injection** e **SOLID**, com persistência em **MongoDB** e documentação automática através do **Swagger**.
-
----
-
-# Objetivo
-
-Disponibilizar uma API REST para gerenciamento de transações financeiras, permitindo:
-
-- Cadastro de transações
-- Consulta de todas as transações
-- Consulta por identificador
-- Atualização de transações
-- Exclusão de transações
 
 ---
 
-# Arquitetura
+## Índice
 
-A solução foi organizada em camadas para garantir baixo acoplamento e alta coesão.
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Arquitetura](#arquitetura)
+- [Funcionalidades implementadas](#funcionalidades-implementadas)
+- [Fluxo de criação de uma transação](#fluxo-de-criação-de-uma-transação)
+- [Pré-requisitos](#pré-requisitos)
+- [Executando a infraestrutura](#executando-a-infraestrutura)
+- [Configuração da aplicação](#configuração-da-aplicação)
+- [Executando a API](#executando-a-api)
+- [Exemplos de endpoints](#exemplos-de-endpoints)
+- [Testando RabbitMQ](#testando-rabbitmq)
+- [Estrutura Docker](#estrutura-docker)
+- [Próximas evoluções](#próximas-evoluções)
+
+---
+
+## Tecnologias utilizadas
+
+| Tecnologia | Finalidade |
+|---|---|
+| .NET 9 | Runtime e SDK principal |
+| ASP.NET Core Web API | Exposição dos endpoints REST |
+| MongoDB 7 | Persistência de dados |
+| RabbitMQ 3 Management | Mensageria assíncrona / eventos |
+| MediatR | Implementação de CQRS |
+| FluentValidation | Validação de comandos e requisições |
+| Docker | Orquestração da infraestrutura local |
+| Swagger / OpenAPI | Documentação interativa da API |
+
+---
+
+## Arquitetura
+
+O projeto foi desenvolvido utilizando uma arquitetura baseada em camadas, seguindo os princípios de **Clean Architecture**:
 
 ```
-                +----------------------+
-                |      Swagger         |
-                +----------+-----------+
-                           |
-                           v
-                +----------------------+
-                |  ASP.NET Core API    |
-                +----------+-----------+
-                           |
-                           v
-                +----------------------+
-                |   Application Layer  |
-                |   CQRS + MediatR     |
-                +----------+-----------+
-                           |
-                           v
-                +----------------------+
-                |     Domain Layer     |
-                | Entities + Contracts |
-                +----------+-----------+
-                           |
-                           v
-                +----------------------+
-                | Infrastructure Layer |
-                | MongoDB Repository   |
-                +----------+-----------+
-                           |
-                           v
-                     MongoDB Database
-```
-
----
-
-# Tecnologias Utilizadas
-
-- .NET 9
-- ASP.NET Core Web API
-- MongoDB
-- MongoDB.Driver
-- MediatR
-- FluentValidation
-- Docker
-- RabbitMQ
-- Swagger / OpenAPI
-- xUnit
-- FluentAssertions
-
----
-
-# Padrões Utilizados
-
-- Clean Architecture
-- CQRS (Command Query Responsibility Segregation)
-- Repository Pattern
-- Dependency Injection
-- SOLID
-- Validation Pattern
-- Domain Driven Design (conceitos)
-
----
-
-# Estrutura da Solução
-
-```
-FinancialControl
+src
 │
-├── docker
-│   └── docker-compose.yml
+├── FinancialControl.Domain
+│   └── Entidades e regras de negócio
 │
-├── src
-│   ├── FinancialControl.Domain
-│   ├── FinancialControl.Application
-│   ├── FinancialControl.Infrastructure
-│   ├── FinancialControl.CrossCutting
-│   └── FinacialControl.Api
+├── FinancialControl.Application
+│   ├── Commands
+│   ├── Queries
+│   ├── Validators
+│   ├── Events
+│   └── Interfaces
 │
-└── testes
-    └── FinancialControl.UnitTests
+├── FinancialControl.Infrastructure
+│   ├── MongoDB
+│   ├── Repositories
+│   ├── RabbitMQ
+│   └── Configurações externas
+│
+├── FinancialControl.CrossCutting
+│
+└── FinacialControl.Api
+    └── Controllers e configuração da API
 ```
 
----
-
-# Pré-requisitos
-
-Antes de executar a aplicação é necessário possuir instalado:
-
-- .NET SDK 9
-- Git
-- Docker
-- Docker Compose
-- MongoDB (caso não utilize Docker)
-- RabbitMQ (caso não utilize Docker)
-
-> **Observação:** durante o desenvolvimento deste projeto o MongoDB e o RabbitMQ foram executados via Docker.
+> A separação em camadas garante baixo acoplamento entre regras de negócio, aplicação e infraestrutura, facilitando testes, manutenção e evolução do sistema.
 
 ---
 
-# Executando o Projeto
+## Funcionalidades implementadas
 
-## 1. Clonar o repositório
+### Transações
+
+A aplicação permite:
+
+- [x] Criar transações
+- [x] Consultar todas as transações
+- [x] Consultar transação por Id
+- [x] Remover transações
+
+---
+
+## Fluxo de criação de uma transação
+
+Ao criar uma transação, o seguinte fluxo é executado:
+
+```
+Cliente
+   |
+   ▼
+API REST
+   |
+   ▼
+CreateTransactionHandler
+   |
+   +----------------+
+   |                |
+   ▼                ▼
+MongoDB          RabbitMQ
+                    |
+                    ▼
+           transaction-created
+```
+
+A transação é persistida no **MongoDB** e um evento é publicado na fila **`transaction-created`** do **RabbitMQ**.
+
+---
+
+## Pré-requisitos
+
+Antes de executar o projeto, tenha instalado:
+
+### .NET SDK
+
+Versão necessária:
+
+```
+.NET 9 SDK
+```
+
+Verificar instalação:
 
 ```bash
-git clone <url-do-repositorio>
+dotnet --version
 ```
 
----
+### Docker
 
-## 2. Entrar na pasta
+Necessário para executar o MongoDB e o RabbitMQ.
+
+Verificar instalação:
 
 ```bash
-cd FinancialControl
+docker --version
 ```
 
 ---
 
-## 3. Subir os containers
+## Executando a infraestrutura
+
+Acesse a pasta do Docker:
+
+```bash
+cd docker
+```
+
+Suba os containers:
 
 ```bash
 docker compose up -d
 ```
 
-Serão iniciados:
-
-- MongoDB
-- RabbitMQ
-
----
-
-## 4. Restaurar os pacotes
+Verifique se os containers estão em execução:
 
 ```bash
-dotnet restore
+docker ps
 ```
 
----
-
-## 5. Compilar
-
-```bash
-dotnet build
-```
-
----
-
-## 6. Executar a API
-
-```bash
-cd src/FinacialControl.Api
-
-dotnet run
-```
-
----
-
-## 7. Abrir o Swagger
+Deve apresentar os seguintes containers:
 
 ```
-https://localhost:xxxx/swagger
+financialcontrol-mongodb
+financialcontrol-rabbitmq
 ```
 
-ou
+### MongoDB
 
-```
-http://localhost:xxxx/swagger
-```
+| Parâmetro | Valor |
+|---|---|
+| Host | `localhost` |
+| Port | `27017` |
+| Database | `FinancialControlDb` |
 
-A porta poderá variar conforme o `launchSettings.json`.
+### RabbitMQ
 
----
-
-# Banco de Dados
-
-O projeto utiliza MongoDB.
-
-Database:
-
-```
-FinancialControlDb
-```
-
-Collection:
-
-```
-transactions
-```
-
----
-
-# RabbitMQ
-
-O RabbitMQ já está preparado via Docker para futuras implementações envolvendo mensageria e processamento assíncrono.
-
-Interface Web:
+Painel administrativo:
 
 ```
 http://localhost:15672
 ```
 
-Usuário padrão:
+| Credencial | Valor |
+|---|---|
+| Usuário | `admin` |
+| Senha | `admin` |
+
+Fila utilizada:
 
 ```
-guest
-```
-
-Senha:
-
-```
-guest
+transaction-created 
 ```
 
 ---
 
-# Endpoints
+## Configuração da aplicação
 
-## Criar Transação
+Arquivo de configuração:
 
 ```
-POST /api/transactions
+src/FinacialControl.Api/appsettings.json
 ```
 
 Exemplo:
 
 ```json
 {
-  "description": "Compra supermercado",
-  "type": 1,
-  "amount": 150.50,
-  "date": "2026-08-06T13:00:00Z"
+  "MongoSettings": {
+    "ConnectionString": "mongodb://localhost:27017",
+    "DatabaseName": "FinancialControlDb"
+  },
+
+  "RabbitMq": {
+    "Host": "localhost",
+    "Port": 5672,
+    "Username": "admin",
+    "Password": "admin",
+    "QueueName": "transaction-created"
+  }
 }
 ```
 
-Resposta:
-
-```
-201 Created
-```
-
 ---
 
-## Listar Todas
+## Executando a API
 
-```
-GET /api/transactions
-```
-
-Resposta:
-
-```
-200 OK
-```
-
----
-
-## Buscar por Id
-
-```
-GET /api/transactions/{id}
-```
-
-Resposta:
-
-```
-200 OK
-```
-
-ou
-
-```
-404 Not Found
-```
-
----
-
-## Atualizar
-
-```
-PUT /api/transactions/{id}
-```
-
-Resposta:
-
-```
-204 No Content
-```
-
----
-
-## Excluir
-
-```
-DELETE /api/transactions/{id}
-```
-
-Resposta:
-
-```
-204 No Content
-```
-
----
-
-# Fluxo CQRS
-
-### Escrita
-
-```
-Controller
-
-↓
-
-Command
-
-↓
-
-Validator
-
-↓
-
-Handler
-
-↓
-
-Repository
-
-↓
-
-MongoDB
-```
-
-### Leitura
-
-```
-Controller
-
-↓
-
-Query
-
-↓
-
-Handler
-
-↓
-
-Repository
-
-↓
-
-MongoDB
-```
-
----
-
-# Testes
-
-O projeto possui testes unitários utilizando:
-
-- xUnit
-- FluentAssertions
-
-Execução:
+Na raiz do projeto, restaure e compile as dependências:
 
 ```bash
-dotnet test
+dotnet build
+```
+
+Execute a aplicação:
+
+```bash
+dotnet run --project src/FinacialControl.Api
+```
+
+A API ficará disponível em:
+
+```
+http://localhost:5143
+```
+
+Documentação interativa (Swagger):
+
+```
+http://localhost:5143/swagger
 ```
 
 ---
 
-# Funcionalidades Implementadas
+## Exemplos de endpoints
 
-- ✔ Cadastro de transações
-- ✔ Consulta de todas as transações
-- ✔ Consulta por Id
-- ✔ Atualização
-- ✔ Exclusão
-- ✔ Validações com FluentValidation
-- ✔ Persistência em MongoDB
-- ✔ Swagger
-- ✔ Docker
-- ✔ RabbitMQ
-- ✔ CQRS
-- ✔ MediatR
-- ✔ Repository Pattern
-- ✔ Dependency Injection
-- ✔ Testes Unitários
+### Criar transação
 
----
+`POST /api/transactions`
 
-# Melhorias Futuras
+**Payload:**
 
-Algumas funcionalidades que podem ser incorporadas futuramente:
+```json
+{
+  "description": "Compra supermercado",
+  "type": 1,
+  "amount": 150.50,
+  "date": "2026-08-06T13:00:00"
+}
+```
 
-- Autenticação JWT
-- Autorização baseada em Roles
-- Health Checks
-- Paginação
-- Ordenação
-- Filtros por período
-- Filtros por tipo de transação
-- Cache
-- Logging estruturado
-- Observabilidade
-- Versionamento da API
-- Testes de integração
-- Pipeline CI/CD
-- Publicação em ambiente Cloud
+**Resposta:**
+
+```json
+{
+  "id": "guid-gerado"
+}
+```
+
+### Consultar transações
+
+`GET /api/transactions`
+
+### Consultar transação por Id
+
+`GET /api/transactions/{id}`
+
+### Remover transação
+
+`DELETE /api/transactions/{id}`
 
 ---
 
-# Autor
+## Testando RabbitMQ
 
-Desenvolvido como solução para o desafio técnico **Financial Control API**, utilizando boas práticas de desenvolvimento, arquitetura em camadas e princípios de engenharia de software.
+Após criar uma transação, é possível validar a publicação do evento:
+
+1. Acesse o painel administrativo:
+
+   ```
+   http://localhost:15672
+   ```
+
+2. Entre no menu **Queues and Streams**.
+
+3. Abra a fila:
+
+   ```
+   transaction-created
+   ```
+
+4. Consulte a mensagem publicada.
+
+**Exemplo de mensagem:**
+
+```json
+{
+  "id": "guid",
+  "description": "Compra supermercado",
+  "amount": 150.50,
+  "type": 1
+}
+```
+
+---
+
+## Estrutura Docker
+
+Arquivo de orquestração:
+
+```
+docker/docker-compose.yml
+```
+
+Responsável por subir:
+
+- MongoDB
+- RabbitMQ Management
+
+---
+
+## Próximas evoluções
+
+Possíveis melhorias planejadas para o projeto:
+
+- [ ] Consumer RabbitMQ Worker
+- [ ] Retry de mensagens
+- [ ] Dead Letter Queue
+- [ ] Autenticação JWT
+- [ ] Testes de integração
+- [ ] Observabilidade com logs e métricas
+
+---
+
+<p align="center">Desenvolvido com .NET 9, MongoDB e RabbitMQ 🚀</p>
