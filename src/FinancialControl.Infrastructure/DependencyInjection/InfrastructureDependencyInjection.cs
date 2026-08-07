@@ -4,6 +4,8 @@ using FinancialControl.Infrastructure.Repositories;
 using FinancialControl.Infrastructure.Configurations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FinancialControl.Infrastructure.Messaging;
+using FinancialControl.Application.Messaging;
 
 
 
@@ -25,12 +27,19 @@ public static class InfrastructureDependencyInjection
             .GetSection("MongoSettings")
             .Get<MongoSettings>();
 
-
         services.AddSingleton(mongoSettings!);
+
+        var rabbitMqSettings =
+            configuration
+                .GetSection("RabbitMq")
+                .Get<RabbitMqSettings>();
+
+        services.AddSingleton(rabbitMqSettings!);
 
 
         services.AddSingleton<MongoContext>();
 
+        services.AddSingleton<IMessagePublisher, RabbitMqPublisher>();
 
         services.AddScoped<ITransactionRepository, TransactionRepository>();
 

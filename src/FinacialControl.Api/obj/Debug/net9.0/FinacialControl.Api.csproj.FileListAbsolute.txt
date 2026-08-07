@@ -61,3 +61,4 @@ C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\Finacia
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinacialControl.Api\bin\Debug\net9.0\FinancialControl.Infrastructure.pdb
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinacialControl.Api\bin\Debug\net9.0\FinancialControl.Application.pdb
 C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinacialControl.Api\bin\Debug\net9.0\FinancialControl.Domain.pdb
+C:\Users\cogv\My Private Documents\DesafioCarrefour\FinancialControl\src\FinacialControl.Api\bin\Debug\net9.0\RabbitMQ.Client.dll
