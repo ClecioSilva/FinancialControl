@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinancialControl.CrossCutting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84e63c7b15516a5e5509240904a17deea2c905d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b2612824ad8641b396be3854a590e7297a96c6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinancialControl.CrossCutting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinancialControl.CrossCutting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

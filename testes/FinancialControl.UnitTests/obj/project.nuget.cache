@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JLdN9mqRB1Q=",
+  "dgSpecHash": "QYJURFwYZKs=",
   "success": true,
   "projectFilePath": "C:\\Users\\cogv\\My Private Documents\\DesafioCarrefour\\FinancialControl\\testes\\FinancialControl.UnitTests\\FinancialControl.UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cogv\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
-    "C:\\Users\\cogv\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
+    "C:\\Users\\cogv\\.nuget\\packages\\coverlet.collector\\10.0.1\\coverlet.collector.10.0.1.nupkg.sha512",
     "C:\\Users\\cogv\\.nuget\\packages\\fluentassertions\\8.10.0\\fluentassertions.8.10.0.nupkg.sha512",
     "C:\\Users\\cogv\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\cogv\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
