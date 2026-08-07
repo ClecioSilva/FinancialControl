@@ -3,6 +3,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using FinancialControl.Application.Queries.Transactions.GetTransactions;
 using FinancialControl.Application.Queries.Transactions.GetTransactionById;
+using FinancialControl.Application.Commands.Transactions.Update;
+using FinancialControl.Application.Commands.Transactions.Delete;
 
 namespace FinacialControl.Api.Controllers;
 
@@ -58,5 +60,40 @@ public class TransactionsController : ControllerBase
 
 
         return Ok(transaction);
+    }
+
+
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(
+        Guid id,
+        UpdateTransactionCommand command)
+    {
+        if (id != command.Id)
+            return BadRequest("O Id da URL é diferente do Id enviado no corpo da requisição.");
+
+        var updated =
+            await _mediator.Send(command);
+
+        if (!updated)
+            return NotFound();
+
+        return NoContent();
+    }
+
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var deleted =
+            await _mediator.Send(
+                new DeleteTransactionCommand
+                {
+                    Id = id
+                });
+
+        if (!deleted)
+            return NotFound();
+
+        return NoContent();
     }
 }

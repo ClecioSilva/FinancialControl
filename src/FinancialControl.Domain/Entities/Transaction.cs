@@ -59,5 +59,20 @@ namespace FinancialControl.Domain.Entities
             throw new ArgumentException(
                 "Valor deve ser maior que zero.");
     }
+
+
+    public void Update(
+        string description,
+        TransactionType type,
+        decimal amount,
+        DateTime date)
+    {
+        Validate(description, amount);
+
+        Description = description;
+        Type = type;
+        Amount = amount;
+        Date = date;
+    }
     }
 }

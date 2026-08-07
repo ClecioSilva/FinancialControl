@@ -20,8 +20,6 @@ public class TransactionRepository
         _context = context;
     }
 
-
-
     public async Task AddAsync(
         Transaction transaction,
         CancellationToken cancellationToken = default)
@@ -31,8 +29,6 @@ public class TransactionRepository
                 transaction,
                 cancellationToken: cancellationToken);
     }
-
-
 
     public async Task<Transaction?> GetByIdAsync(
         Guid id,
@@ -53,5 +49,26 @@ public class TransactionRepository
             .Find(_ => true)
             .ToListAsync(
                 cancellationToken);
+    }
+
+
+    public async Task UpdateAsync(
+        Transaction transaction,
+        CancellationToken cancellationToken = default)
+    {
+        await _context.Transactions.ReplaceOneAsync(
+            x => x.Id == transaction.Id,
+            transaction,
+            cancellationToken: cancellationToken);
+    }
+
+
+    public async Task DeleteAsync(
+        Guid id,
+        CancellationToken cancellationToken = default)
+    {
+        await _context.Transactions.DeleteOneAsync(
+            x => x.Id == id,
+            cancellationToken);
     }
 }
